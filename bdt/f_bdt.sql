@@ -1,0 +1,11 @@
+@f_bdt_drop.sql
+@f_bdt_drop_log.sql
+@f_bdt_catalogue.sql
+@f_bdt_catalogue_log.sql
+@f_bdt_magasin.sql
+@f_bdt_magasin_log.sql
+@f_dbt_date.sql
+@f_dbt_date_log.sql
+@f_bdt_vente.sql
+@f_bdt_vente_log.sql
+@import_bde_bdt.sql

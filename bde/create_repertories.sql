@@ -1,0 +1,2 @@
+CREATE OR REPLACE DIRECTORY monRepertoireSrc18 AS '/volsme/user1x/users/nf26p018/Documents/cours_3/data/'; -- /home/nf26/proj
+CREATE OR REPLACE DIRECTORY monRepertoireLog18 AS '/volsme/user1x/users/nf26p018/Documents/cours_3/tmp';
