@@ -1,23 +1,22 @@
-CREATE TABLE f_bde_departementsInsee2003(
-  numDepartement NUMBER(3),
-  nomDepartement VARCHAR2(30),
-  population NUMBER(10)
+CREATE TABLE f_bde_departements(
+	numDepartement NUMBER(3),
+	nomDepartement VARCHAR2(30),
+	population NUMBER(10)
 )
-ORGANIZATION EXTERNAL
-(
-  TYPE ORACLE_LOADER
-  DEFAULT DIRECTORY monRepertoireSrc18
-  ACCESS PARAMETERS 
-(
-RECORDS DELIMITED BY newline
-SKIP 0
-CHARACTERSET UTF8
-BADFILE monRepertoireLog18:'departementsInsee2003.txt.bad'
-LOGFILE monRepertoireLog18:'departementsInsee2003.txt.log'
-FIELDS TERMINATED BY ';'
-OPTIONALLY ENCLOSED BY '"'
+ORGANIZATION EXTERNAL(
+	TYPE ORACLE_LOADER
+	DEFAULT DIRECTORY monRepertoireSrc18
+	ACCESS PARAMETERS(
+		RECORDS DELIMITED BY newline
+		SKIP 0
+		CHARACTERSET UTF8
+		BADFILE monRepertoireLog18:'departements.txt.bad'
+		LOGFILE monRepertoireLog18:'departements.txt.log'
+		FIELDS TERMINATED BY ';'
+		OPTIONALLY ENCLOSED BY '"'
+	)
+	LOCATION ('departementsInsee2003.txt')
 )
-LOCATION ('departementsInsee2003.txt'))
 REJECT LIMIT 10;
 
 -- DESCRIBE f_bde_departementsInsee2003;

@@ -1,27 +1,26 @@
 CREATE TABLE f_bde_marketing(
-  magasin VARCHAR2(10),
-  departement VARCHAR2(10),
-  rayonnage CHAR(1),
-  rayonnageExplicite VARCHAR2(10),
-  rayonBS VARCHAR2(2),
-  rayonRecent VARCHAR2(2)
+	magasin VARCHAR2(10),
+	departement VARCHAR2(10),
+	rayonnage CHAR(1),
+	rayonnageExplicite VARCHAR2(10),
+	rayonBS VARCHAR2(2),
+	rayonRecent VARCHAR2(2)
 )
-ORGANIZATION EXTERNAL
-(
-  TYPE ORACLE_LOADER
-  DEFAULT DIRECTORY monRepertoireSrc18
-  ACCESS PARAMETERS 
-(
-RECORDS DELIMITED BY newline
-SKIP 1
-CHARACTERSET UTF8
-BADFILE monRepertoireLog18:'marketing.txt.bad'
-LOGFILE monRepertoireLog18:'marketing.txt.log'
-FIELDS TERMINATED BY ';'
-OPTIONALLY ENCLOSED BY '"'
+ORGANIZATION EXTERNAL(
+	TYPE ORACLE_LOADER
+	DEFAULT DIRECTORY monRepertoireSrc18
+	ACCESS PARAMETERS(
+		RECORDS DELIMITED BY newline
+		SKIP 1
+		CHARACTERSET UTF8
+		BADFILE monRepertoireLog18:'marketing.txt.bad'
+		LOGFILE monRepertoireLog18:'marketing.txt.log'
+		FIELDS TERMINATED BY ';'
+		OPTIONALLY ENCLOSED BY '"'
+	)
+	LOCATION ('marketing.csv')
 )
-LOCATION ('marketing.csv'))
 REJECT LIMIT 10;
 
--- 	DESCRIBE f_bde_marketing;
---	SELECT TABLE_NAME, TYPE_NAME, DEFAULT_DIRECTORY_NAME FROM USER_EXTERNAL_TABLES;
+-- DESCRIBE f_bde_marketing;
+-- SELECT TABLE_NAME, TYPE_NAME, DEFAULT_DIRECTORY_NAME FROM USER_EXTERNAL_TABLES;
