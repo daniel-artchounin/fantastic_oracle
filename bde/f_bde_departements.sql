@@ -5,13 +5,13 @@ CREATE TABLE f_bde_departements(
 )
 ORGANIZATION EXTERNAL(
 	TYPE ORACLE_LOADER
-	DEFAULT DIRECTORY monRepertoireSrc18
+	DEFAULT DIRECTORY monRepertoireFSrc18
 	ACCESS PARAMETERS(
 		RECORDS DELIMITED BY newline
 		SKIP 0
 		CHARACTERSET UTF8
-		BADFILE monRepertoireLog18:'departements.txt.bad'
-		LOGFILE monRepertoireLog18:'departements.txt.log'
+		BADFILE monRepertoireFLog18:'departements.txt.bad'
+		LOGFILE monRepertoireFLog18:'departements.txt.log'
 		FIELDS TERMINATED BY ';'
 		OPTIONALLY ENCLOSED BY '"'
 	)

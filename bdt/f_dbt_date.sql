@@ -15,11 +15,11 @@ IS
 	IS
 	regexResult NUMBER(1);
 	BEGIN
-		SELECT REGEXP_INSTR(dateTicket, '\d{4}-\d{2}-\d{2}') INTO regexResult FROM DUAL;
+		regexResult := REGEXP_INSTR(SELF.dateTicket, '\d{4}-\d{2}-\d{2}');
 		IF regexResult = 0 THEN 
 			RETURN NULL;
 		ELSE
-			RETURN TO_DATE(dateTicket, 'YYYY-MM-DD');
+			RETURN TO_DATE(SELF.dateTicket, 'YYYY-MM-DD');
 		END IF;
 	END;
 
@@ -28,11 +28,11 @@ IS
 		regexResult NUMBER(1);
 		dayWeek NUMBER(1);
 	BEGIN
-		SELECT REGEXP_INSTR(dateTicket, '\d{4}-\d{2}-\d{2}') INTO regexResult FROM DUAL;
+		regexResult := REGEXP_INSTR(SELF.dateTicket, '\d{4}-\d{2}-\d{2}');
 		IF regexResult = 0 THEN 
 			RETURN NULL;
 		ELSE
-			dayWeek := TO_CHAR(TO_DATE(dateTicket, 'YYYY-MM-DD'), 'D');
+			dayWeek := TO_CHAR(TO_DATE(SELF.dateTicket, 'YYYY-MM-DD'), 'D');
 			RETURN TO_NUMBER(dayWeek);
 		END IF;
 	END;
@@ -41,11 +41,11 @@ IS
 	IS
 		regexResult NUMBER(1);
 	BEGIN
-		SELECT REGEXP_INSTR(dateTicket, '\d{4}-\d{2}-\d{2}') INTO regexResult FROM DUAL;
+		regexResult := REGEXP_INSTR(SELF.dateTicket, '\d{4}-\d{2}-\d{2}');
 		IF regexResult = 0 THEN 
 			RETURN NULL;
 		ELSE
-			RETURN TO_NUMBER(TO_CHAR(TO_DATE(dateTicket, 'YYYY-MM-DD'), 'DDD'));
+			RETURN TO_NUMBER(TO_CHAR(TO_DATE(SELF.dateTicket, 'YYYY-MM-DD'), 'DDD'));
 		END IF;
 	END;
 
@@ -53,11 +53,11 @@ IS
 	IS
 		regexResult NUMBER(1);
 	BEGIN
-		SELECT REGEXP_INSTR(dateTicket, '\d{4}-\d{2}-\d{2}') INTO regexResult FROM DUAL;
+		regexResult := REGEXP_INSTR(SELF.dateTicket, '\d{4}-\d{2}-\d{2}');
 		IF regexResult = 0 THEN 
 			RETURN NULL;
 		ELSE
-			RETURN TO_NUMBER(TO_CHAR(TO_DATE(dateTicket, 'YYYY-MM-DD'), 'MM'));
+			RETURN TO_NUMBER(TO_CHAR(TO_DATE(SELF.dateTicket, 'YYYY-MM-DD'), 'MM'));
 		END IF;
 	END;
 
@@ -66,11 +66,11 @@ IS
 		regexResult NUMBER(1);
 		monthOfYear NUMBER(2);
 	BEGIN
-		SELECT REGEXP_INSTR(dateTicket, '\d{4}-\d{2}-\d{2}') INTO regexResult FROM DUAL;
+		regexResult := REGEXP_INSTR(SELF.dateTicket, '\d{4}-\d{2}-\d{2}');
 		IF regexResult = 0 THEN 
 			RETURN NULL;
 		ELSE
-			monthOfYear := TO_NUMBER(TO_CHAR(TO_DATE(dateTicket, 'YYYY-MM-DD'), 'MM'));
+			monthOfYear := TO_NUMBER(TO_CHAR(TO_DATE(SELF.dateTicket, 'YYYY-MM-DD'), 'MM'));
 			IF  monthOfYear <= 3 THEN 
 				RETURN TO_NUMBER('1');
 			ELSIF monthOfYear <= 6 THEN 
@@ -86,13 +86,13 @@ IS
 	MEMBER FUNCTION getSemaine RETURN NUMBER
 	IS
 		regexResult NUMBER(1);
-		BEGIN
-			SELECT REGEXP_INSTR(dateTicket, '\d{4}-\d{2}-\d{2}') INTO regexResult FROM DUAL;
-			IF regexResult = 0 THEN 
-				RETURN NULL;
-			ELSE
-				RETURN TO_NUMBER(TO_CHAR(TO_DATE(dateTicket, 'YYYY-MM-DD'), 'IW'));
-			END IF;
+	BEGIN
+		regexResult := REGEXP_INSTR(SELF.dateTicket, '\d{4}-\d{2}-\d{2}');
+		IF regexResult = 0 THEN 
+			RETURN NULL;
+		ELSE
+			RETURN TO_NUMBER(TO_CHAR(TO_DATE(SELF.dateTicket, 'YYYY-MM-DD'), 'IW'));
+		END IF;
 	END; 
 END;
 /

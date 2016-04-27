@@ -6,13 +6,13 @@ CREATE TABLE f_bde_dataCSV(
 )
 ORGANIZATION EXTERNAL(
 	TYPE ORACLE_LOADER
-	DEFAULT DIRECTORY monRepertoireSrc18
+	DEFAULT DIRECTORY monRepertoireFSrc18
 	ACCESS PARAMETERS(
 		RECORDS DELIMITED BY newline
 		SKIP 0
 		CHARACTERSET UTF8
-		BADFILE monRepertoireLog18:'dataCSV.txt.bad'
-		LOGFILE monRepertoireLog18:'dataCSV.txt.log'
+		BADFILE monRepertoireFLog18:'dataCSV.txt.bad'
+		LOGFILE monRepertoireFLog18:'dataCSV.txt.log'
 		FIELDS TERMINATED BY ';'
 		OPTIONALLY ENCLOSED BY '"'
 	)

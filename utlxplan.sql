@@ -1,6 +1,6 @@
 DROP TABLE PLAN_TABLE;
 
-create table PLAN_TABLE(
+CREATE TABLE PLAN_TABLE(
 	statement_id VARCHAR2(30),
 	timestamp DATE,
 	remarks VARCHAR2(80),

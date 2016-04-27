@@ -18,8 +18,8 @@ IS
 	MEMBER FUNCTION getISBN RETURN NUMBER
 	IS
 	BEGIN
-		IF LENGTH(iSBN) = 13 THEN 
-	  		RETURN TO_NUMBER(iSBN);
+		IF LENGTH(SELF.iSBN) = 13 THEN 
+	  		RETURN TO_NUMBER(SELF.iSBN);
 		ELSE  
 	 		RETURN NULL;
 		END IF;    
@@ -29,7 +29,7 @@ IS
 	IS
 	auteurNom VARCHAR(30);
 	BEGIN
-		SELECT trim(REGEXP_SUBSTR(a, '[^,]+', 1, 1)) INTO auteurNom FROM (SELECT auteur a FROM dual); 
+		auteurNom := TRIM(REGEXP_SUBSTR(SELF.auteur, '[^,]+', 1, 1));
 		IF auteurNom = '' THEN 
 			RETURN NULL;
 		ELSE
@@ -41,7 +41,7 @@ IS
 	IS
 	auteurPrenom VARCHAR(30);
 	BEGIN
-		SELECT trim(REGEXP_SUBSTR(a, '[^,]+', 1, 2)) INTO auteurPrenom FROM (SELECT auteur a FROM dual); 
+		auteurPrenom := TRIM(REGEXP_SUBSTR(SELF.auteur, '[^,]+', 1, 2));
 		IF auteurPrenom = '' THEN 
 	 		RETURN NULL;
 		ELSE
@@ -52,18 +52,18 @@ IS
 	MEMBER FUNCTION getTitre RETURN VARCHAR2
 	IS
 	BEGIN
-		IF titre = 'pas de titre' THEN 
+		IF SELF.titre = 'pas de titre' THEN 
 	 		RETURN NULL;
 		ELSE
-			RETURN titre;
+			RETURN SELF.titre;
 		END IF;    
 	END;
 
 	MEMBER FUNCTION getLangue RETURN VARCHAR2
 	IS
 	BEGIN
-		IF LENGTH(langue) = 3 THEN 
-			RETURN langue;
+		IF LENGTH(SELF.langue) = 3 THEN 
+			RETURN SELF.langue;
 		ELSE
 			RETURN NULL;
 		END IF;      
@@ -74,7 +74,7 @@ IS
 		publicationVarchar VARCHAR2(30);
 		publicationDate VARCHAR(30);
 	BEGIN
-		publicationVarchar := SUBSTR(publication, 1, 10);
+		publicationVarchar := SUBSTR(SELF.publication, 1, 10);
 		publicationDate := TO_DATE(publicationVarchar, 'YYYY-MM-DD');
 		RETURN publicationDate;
 	END;  

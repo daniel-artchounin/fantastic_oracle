@@ -8,13 +8,13 @@ CREATE TABLE f_bde_marketing(
 )
 ORGANIZATION EXTERNAL(
 	TYPE ORACLE_LOADER
-	DEFAULT DIRECTORY monRepertoireSrc18
+	DEFAULT DIRECTORY monRepertoireFSrc18
 	ACCESS PARAMETERS(
 		RECORDS DELIMITED BY newline
 		SKIP 1
 		CHARACTERSET UTF8
-		BADFILE monRepertoireLog18:'marketing.txt.bad'
-		LOGFILE monRepertoireLog18:'marketing.txt.log'
+		BADFILE monRepertoireFLog18:'marketing.txt.bad'
+		LOGFILE monRepertoireFLog18:'marketing.txt.log'
 		FIELDS TERMINATED BY ';'
 		OPTIONALLY ENCLOSED BY '"'
 	)

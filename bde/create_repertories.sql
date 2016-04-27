@@ -1,2 +1,2 @@
-CREATE OR REPLACE DIRECTORY monRepertoireSrc18 AS '/volsme/user1x/users/nf26p018/Documents/cours_3/data/'; -- /home/nf26/proj
-CREATE OR REPLACE DIRECTORY monRepertoireLog18 AS '/volsme/user1x/users/nf26p018/Documents/cours_3/tmp';
+CREATE OR REPLACE DIRECTORY monRepertoireFSrc18 AS '/volsme/user1x/users/nf26p018/Documents/fantastic/data/'; -- /home/nf26/proj
+CREATE OR REPLACE DIRECTORY monRepertoireFLog18 AS '/volsme/user1x/users/nf26p018/Documents/fantastic/tmp';

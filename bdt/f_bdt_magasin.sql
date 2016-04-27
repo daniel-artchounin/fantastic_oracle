@@ -33,8 +33,8 @@ IS
 	MEMBER FUNCTION getMagasin RETURN VARCHAR2
 	IS
 	BEGIN
-		IF SUBSTR(magasin, 1, 1) = 'M' THEN 
-			RETURN magasin;
+		IF SUBSTR(SELF.magasin, 1, 1) = 'M' THEN 
+			RETURN SELF.magasin;
 		ELSE
 			RETURN NULL;
 		END IF;
@@ -43,43 +43,43 @@ IS
 	MEMBER FUNCTION getDepartement RETURN NUMBER
 	IS
 	BEGIN
-		RETURN TO_NUMBER(departement);
+		RETURN TO_NUMBER(SELF.departement);
 	END;
 
 	MEMBER FUNCTION getNomDepartement RETURN VARCHAR2
 	IS
 	BEGIN
-		RETURN TRIM(nomDepartement);
+		RETURN TRIM(SELF.nomDepartement);
 	END;
 
 	MEMBER FUNCTION getPopulation RETURN NUMBER
 	IS
 	BEGIN
-		RETURN TO_NUMBER(population);
+		RETURN TO_NUMBER(SELF.population);
 	END;
 
 	MEMBER FUNCTION getRayonnage RETURN CHAR
 	IS
 	BEGIN
-		RETURN TRIM(rayonnage);
+		RETURN TRIM(SELF.rayonnage);
 	END;
 
 	MEMBER FUNCTION getRayonnageExplicite RETURN VARCHAR2
 	IS
 	BEGIN
-		RETURN TRIM(rayonnageExplicite);
+		RETURN TRIM(SELF.rayonnageExplicite);
 	END;
 
 	MEMBER FUNCTION getRayonBS RETURN NUMBER
 	IS
 	BEGIN
-		RETURN TO_NUMBER(rayonBS);
+		RETURN TO_NUMBER(SELF.rayonBS);
 	END; 
 
 	MEMBER FUNCTION getRayonRecent RETURN NUMBER
 	IS
 	BEGIN
-		RETURN TO_NUMBER(rayonRecent);
+		RETURN TO_NUMBER(SELF.rayonRecent);
 	END;   
 END;
 /

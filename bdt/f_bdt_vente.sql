@@ -15,8 +15,8 @@ IS
 	MEMBER FUNCTION getTicket RETURN NUMBER
 	IS
 	BEGIN
-		IF LENGTH(ticket) = 9 THEN 
-			RETURN TO_NUMBER(ticket);
+		IF LENGTH(SELF.ticket) = 9 THEN 
+			RETURN TO_NUMBER(SELF.ticket);
 		ELSE  
 			RETURN NULL;
 		END IF;
@@ -26,19 +26,19 @@ IS
 	IS
 	regexResult NUMBER(1);
 	BEGIN
-		SELECT REGEXP_INSTR(fKDateTicket, '\d{4}-\d{2}-\d{2}') INTO regexResult FROM DUAL;
+		SELECT REGEXP_INSTR(SELF.fKDateTicket, '\d{4}-\d{2}-\d{2}') INTO regexResult FROM DUAL;
 		IF regexResult = 0 THEN 
 			RETURN NULL;
 		ELSE
-			RETURN TO_DATE(fKDateTicket, 'YYYY-MM-DD');
+			RETURN TO_DATE(SELF.fKDateTicket, 'YYYY-MM-DD');
 		END IF;    
 	END;
 
 	MEMBER FUNCTION getProduit RETURN NUMBER
 	IS
 	BEGIN
-		IF LENGTH(fKProduit) = 13 THEN 
-			RETURN TO_NUMBER(fKProduit);
+		IF LENGTH(SELF.fKProduit) = 13 THEN 
+			RETURN TO_NUMBER(SELF.fKProduit);
 		ELSE  
 			RETURN NULL;
 		END IF;  
@@ -47,8 +47,8 @@ IS
 	MEMBER FUNCTION getMagasin RETURN VARCHAR2
 	IS
 	BEGIN
-		IF SUBSTR(fKMagasin, 1, 1) = 'M' THEN 
-			RETURN fKMagasin;
+		IF SUBSTR(SELF.fKMagasin, 1, 1) = 'M' THEN 
+			RETURN SELF.fKMagasin;
 		ELSE  
 			RETURN NULL;
 		END IF;  
